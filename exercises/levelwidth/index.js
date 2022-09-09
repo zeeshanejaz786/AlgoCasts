@@ -11,6 +11,36 @@
 // 4       5
 // Answer: [1, 3, 2]
 
-function levelWidth(root) {}
+function levelWidth(root) {
+    // const arr = [root, 's'];
+    // const counters = [0];
+  
+    // while (arr.length > 1) {
+    //   const node = arr.shift();
+  
+    //   if (node === 's') {
+    //     counters.push(0);
+    //     arr.push('s');
+    //   } else {
+    //     arr.push(...node.children);
+    //     counters[counters.length - 1]++;
+    //   }
+    // }
+  
+    // return counters;
+  const arr = [root, "stop"];
+  const result = [0];
+  while (arr.length > 1) {
+    const node = arr.shift();
+    if (node === "stop") {
+      result.push(0); 
+      arr.push("stop");
+    } else {
+      result[result.length - 1] ++;
+      arr.push(...node.children);
+    }
+  }
+  return result;
+}
 
 module.exports = levelWidth;
